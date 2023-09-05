@@ -1,6 +1,6 @@
 /** @type {iport('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js,ts,svelte}"],
+  content: ["./index.html", "./src/**/*.{svelte,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {

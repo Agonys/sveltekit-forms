@@ -1,9 +1,14 @@
 import { z } from "zod";
 
+const errorMessages = {
+  username: "Username cannot be empty.",
+  password: "Password cannot be empty.",
+};
+
 export const loginSchema = z.object({
-  username: z.string().min(3),
-  password: z.string().min(8),
+  username: z.string().min(1, errorMessages.username),
+  password: z.string().min(1, errorMessages.password),
   rememberUser: z.boolean(),
 });
 
-export type LoginSchema = z.infer<typeof loginSchema>;
+export type LoginSchema = z.input<typeof loginSchema>;

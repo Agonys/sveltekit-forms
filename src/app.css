@@ -11,4 +11,11 @@
     font-family: "Inter", sans-serif;
     @apply text-white;
   }
+
+  a {
+    @apply text-blue-500;
+  }
+  a:hover {
+    @apply underline;
+  }
 }
