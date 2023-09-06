@@ -13,7 +13,4 @@
     height: 100%;
     background-color: theme('colors.gray.900');
   }
-  :global(body) {
-    height: 100%;
-  }
 </style>

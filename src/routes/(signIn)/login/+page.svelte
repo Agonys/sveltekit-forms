@@ -22,6 +22,7 @@
         placeholder="Enter your username..."
         bind:value={$form.username}
         error={$errors.username?.[0]}
+        name="username"
       />
       <TextInput
         label="Password"
@@ -29,10 +30,12 @@
         placeholder="Enter your password..."
         bind:value={$form.password}
         error={$errors.password?.[0]}
+        name="password"
       />
       <CheckboxInput
         bind:checked={$form.rememberUser}
         label="Remember me"
+        name="rememberMe"
       />
       <Button
         type="submit"

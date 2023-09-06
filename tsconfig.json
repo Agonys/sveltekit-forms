@@ -1,14 +1,18 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "cypress/**/*.ts"],
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
+//		"target": "ES6",
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true
+		"sourceMap": false,
+		"noEmit": false,
+		"strict": true,
+		"baseUrl": "./",
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//

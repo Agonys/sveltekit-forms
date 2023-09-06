@@ -43,7 +43,7 @@ export const registerSchema = z.object({
   confirmPassword: z
     .string({ required_error: errors.confirmPassword.required })
     .trim(),
-  agreement: z.boolean(),
+  agreement: z.literal<boolean>(true),
 });
 
 export type RegisterSchema = z.input<typeof registerSchema>;
