@@ -1,17 +1,19 @@
 <script lang="ts">
-  import {Check} from "lucide-svelte";
+  import { Check } from "lucide-svelte";
 
   export let checked: boolean;
   export let label: string = "";
+  export let name: string;
 </script>
 
-<label class="flex gap-2 font-medium text-sm items-center cursor-pointer w-fit">
+<label class="flex w-fit cursor-pointer items-center gap-2 text-sm font-medium">
   <input
     type="checkbox"
+    {name}
     bind:checked
-    class="peer appearance-none w-4 h-4 bg-gray-700 rounded-sm drop-shadow border border-gray-600 checked:bg-blue-600 checked:border-none cursor-pointer"
+    class="peer h-4 w-4 cursor-pointer appearance-none rounded-sm border border-gray-600 bg-gray-700 drop-shadow checked:border-none checked:bg-blue-600"
   />
-  <Check class="absolute w-4 h-4 hidden peer-checked:block cursor-pointer" />
+  <Check class="absolute hidden h-4 w-4 cursor-pointer peer-checked:block" />
   {#if label}
     {label}
   {:else}
