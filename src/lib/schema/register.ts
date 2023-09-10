@@ -3,8 +3,7 @@ import { z } from "zod";
 export const errors = {
   username: {
     required: "Username is required.",
-    default:
-      "Username must be between 3-32 characters and contains only alphanumerics.",
+    default: "Username must be between 3-32 characters and contains only alphanumerics.",
   },
   email: {
     required: "Email is required.",
@@ -12,8 +11,7 @@ export const errors = {
   },
   password: {
     required: "Password is required.",
-    default:
-      "Password must be at least 8 characters (uppercase and lowercase), 1 digit and 1 special character.",
+    default: "Password must be at least 8 characters (uppercase and lowercase), 1 digit and 1 special character.",
   },
   confirmPassword: {
     required: "Confirm password is required.",
@@ -21,8 +19,7 @@ export const errors = {
   },
 };
 
-const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 export const registerSchema = z.object({
   username: z
@@ -31,19 +28,15 @@ export const registerSchema = z.object({
     .max(32, errors.username.default)
     .regex(/^[a-zA-Z0-9]+$/, errors.username.default)
     .trim(),
-  email: z
-    .string({ required_error: errors.email.required })
-    .email(errors.email.default),
+  email: z.string({ required_error: errors.email.required }).email(errors.email.default),
   password: z
     .string({ required_error: errors.password.required })
     .min(8, errors.password.default)
     .max(32, errors.password.default)
     .regex(passwordRegex, errors.password.default)
     .trim(),
-  confirmPassword: z
-    .string({ required_error: errors.confirmPassword.required })
-    .trim(),
-  agreement: z.boolean(),
+  confirmPassword: z.string({ required_error: errors.confirmPassword.required }).trim(),
+  agreement: z.literal<boolean>(true),
 });
 
 export type RegisterSchema = z.input<typeof registerSchema>;
